@@ -15,7 +15,7 @@ def register(user: UserCreate):
         if u["email"] == user.email:
             raise HTTPException(status_code=400, detail="Email already registered")
 
-    user_id = str(uuid.uuid4())  # ✅ unique ID generate
+    user_id = str(uuid.uuid4())  
 
     new_user = {
         "user_id": user_id,
@@ -31,7 +31,6 @@ def register(user: UserCreate):
 
     token = create_access_token({"sub": user.email})
 
-    # ✅ token ke saath user_id aur name bhi return
     return {
         "access_token": token,
         "token_type": "bearer",
@@ -51,10 +50,10 @@ def login(user: LoginRequest):
 
     token = create_access_token({"sub": user.email})
 
-    # ✅ login mein bhi user_id aur name return
     return {
         "access_token": token,
         "token_type": "bearer",
         "user_id": db_user["user_id"],
         "name": db_user["name"]
+
     }
