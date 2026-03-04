@@ -10,13 +10,12 @@ class UserUpdate(BaseModel):
     email: EmailStr
     text: str
 
-# ✅ GET all users — login zaroori
 @router.get("/users")
 def get_users(
     limit: int = Query(10, gt=0),
     offset: int = Query(0, ge=0),
     sort: str = Query("asc"),
-    current_user: str = Depends(get_current_user)  # 🔒 protected
+    current_user: str = Depends(get_current_user)  
 ):
     data = load_data()
     users = data["users"]
@@ -31,7 +30,6 @@ def get_users(
     return {"total": total, "limit": limit, "offset": offset, "data": paginated}
 
 
-# ✅ GET single user — login zaroori
 @router.get("/users/{user_id}")
 def get_user(user_id: str, current_user: str = Depends(get_current_user)):
     data = load_data()
@@ -41,7 +39,6 @@ def get_user(user_id: str, current_user: str = Depends(get_current_user)):
     raise HTTPException(status_code=404, detail="User not found")
 
 
-# ✅ UPDATE user — login zaroori
 @router.put("/users/{user_id}")
 def update_user(user_id: str, updated_user: UserUpdate, current_user: str = Depends(get_current_user)):
     data = load_data()
@@ -55,7 +52,6 @@ def update_user(user_id: str, updated_user: UserUpdate, current_user: str = Depe
     raise HTTPException(status_code=404, detail="User not found")
 
 
-# ✅ DELETE user — login zaroori
 @router.delete("/users/{user_id}")
 def delete_user(user_id: str, current_user: str = Depends(get_current_user)):
     data = load_data()
@@ -67,7 +63,6 @@ def delete_user(user_id: str, current_user: str = Depends(get_current_user)):
     raise HTTPException(status_code=404, detail="User not found")
 
 
-# ✅ ANALYZE — login zaroori
 @router.post("/analyze/{user_id}")
 def analyze_text(user_id: str, current_user: str = Depends(get_current_user)):
     data = load_data()
@@ -95,7 +90,6 @@ def analyze_text(user_id: str, current_user: str = Depends(get_current_user)):
     return analysis
 
 
-# ✅ GET user analyses — login zaroori
 @router.get("/users/{user_id}/analyses")
 def get_user_analyses(
     user_id: str,
@@ -120,5 +114,6 @@ def get_user_analyses(
     sorted_analyses = sorted(analyses, key=lambda x: x["analysis_id"], reverse=(sort == "desc"))
     total = len(sorted_analyses)
     paginated = [] if offset >= total else sorted_analyses[offset: offset + limit]
+
 
     return {"total": total, "limit": limit, "offset": offset, "data": paginated}
