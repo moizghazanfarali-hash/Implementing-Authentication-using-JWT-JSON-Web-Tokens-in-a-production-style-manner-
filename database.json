@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "user_id": "4b4f186e-8dd9-4936-b9f0-159ca6d79e3c",
+      "name": "string",
+      "email": "user@example.com",
+      "hashed_password": "$2b$12$DVnaXKaXx.hK17ycmfIKOuIYsxmLexnXY19WiFjBkvaAxHNbeyc1G",
+      "text": "",
+      "texts": []
+    },
+    {
+      "user_id": "108635ff-a4b9-41a3-936f-bf8924552aeb",
+      "name": "strling",
+      "email": "user@examplle.com",
+      "hashed_password": "$2b$12$9C/fItuMKdIuJk7KU/b0wO4UjoVvihsKSOQuOHzQuobNAXQf/8elO",
+      "text": "",
+      "texts": []
+    },
+    {
+      "user_id": "d02e2a52-c64e-4bbf-9423-73a8a7a6b6bf",
+      "name": "string",
+      "email": "user@exampdle.com",
+      "hashed_password": "$2b$12$yw1PEJWbx411jW2ILtaIs.X9.FFTS.xXyRtqbNK/DxXqlm8JKd8lu",
+      "text": "",
+      "texts": []
+    },
+    {
+      "user_id": "508d3186-50c3-499f-8c3a-5adad5d0cca1",
+      "name": "string",
+      "email": "user@exampsle.com",
+      "hashed_password": "$2b$12$cCN1rvxOYqjT6tJ2bmD57ekduJylYT0cW6WoPMBzrnfioFxg2WA6i",
+      "text": "",
+      "texts": []
+    }
+  ],
+  "analyses": []
+}
